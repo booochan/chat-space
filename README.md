@@ -25,7 +25,7 @@ Things you may want to cover:
 
 ## usesテーブル
 
-|Column|Type|Options|Indedx|
+|Column|Type|Options|Index|
 |------|----|-------|------|
 |name|string|null: false|-|
 |email|string|null: false|-|
@@ -38,7 +38,7 @@ Things you may want to cover:
 
 ## groupsテーブル
 
-|Column|Type|Options|Indedx|
+|Column|Type|Options|Index|
 |------|----|-------|------|
 |name|string|null: false|◯|
 
@@ -48,7 +48,7 @@ Things you may want to cover:
 
 ## membersテーブル
 
-|Column|Type|Options|Indedx|
+|Column|Type|Options|Index|
 |------|----|-------|------|
 |user_id|reference|null: false, foreign_key: true|◯|
 |group_id|reference|null: false, foreign_key: true|◯|
@@ -59,7 +59,7 @@ Things you may want to cover:
 
 ## messagesテーブル
 
-|Column|Type|Options|Indedx|
+|Column|Type|Options|Index|
 |------|----|-------|------|
 |text|text|-|-|
 |image|string|-|-|
