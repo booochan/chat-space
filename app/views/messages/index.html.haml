@@ -1,0 +1,41 @@
+.wrapper
+  .menu
+    .menu__user
+      .menu__user__nickname
+        NickName
+      .menu__user__button
+        = fa_icon "cog"
+        = fa_icon "edit"
+    .menu__chatlist
+      %ul
+        %li.memu__chatlist__list
+          %p.menu__chatlist__list--group
+            WCUPについて話そう
+          %p.menu__chatlist__list--message
+            日本代表頑張って！
+  .group
+    .group__head
+      .group__head__title
+        WCUPについて話そう
+        %p.member
+          Member: nickmack sumsum
+      .group__head__edit
+        Edit
+    .group__chat
+      .messages
+        .messages--nickname
+          sumsum
+        .messages--createdat
+          2018/06/02 18:30
+        .messages--text
+          日本代表頑張って！
+    .group__message
+      %from
+        .group__message__text
+          %input{:name => "text"}
+          .group__message__img
+            = fa_icon "image"
+          %input{:type => "submit", :value => "Send"}
+
+
+
