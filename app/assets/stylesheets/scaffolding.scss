@@ -28,7 +28,9 @@
       }
       .menu__user__button {
         float: right;
-        color: #fff;
+        a {
+          color: #fff;
+        }
       }
     }
     .menu__chatlist {
@@ -77,7 +79,10 @@
         height:40px;
         padding: 0 20px;
         line-height: 40px;
-        color: #38AEF0;
+        a {
+          color: #38AEF0;
+          text-decoration: none;
+        }
       }
     }
     .group__chat {
@@ -124,11 +129,12 @@
             border: none;
             float: left;
           }
-          .group__message__text--img {
+          label {
             line-height: 50px;
+            font-size: 20px;
           }
         }
-        input[type="submit"] {
+        input.group__message__text--button {
           background-color: #38AEF0;
           color: #fff;
           border: 0;
