@@ -7,20 +7,30 @@
       .menu__user__nickname
         NickName
       .menu__user__button
-        = fa_icon "cog"
         = fa_icon "edit"
+        = fa_icon "cog"
     .menu__chatlist
       %ul
         %li.memu__chatlist__list
-          %p.menu__chatlist__list--group
+          .menu__chatlist__list--group
             WCUPについて話そう
-          %p.menu__chatlist__list--message
+          .menu__chatlist__list--message
             日本代表頑張って！
+        %li.memu__chatlist__list
+          .menu__chatlist__list--group
+            仮想通貨について話そう
+          .menu__chatlist__list--message
+            NEM頑張って！
+        %li.memu__chatlist__list
+          .menu__chatlist__list--group
+            眠い
+          .menu__chatlist__list--message
+            頑張って！
   .group
     .group__head
       .group__head__title
         WCUPについて話そう
-        %p.member
+        .group__head__members
           Member: nickmack sumsum
       .group__head__edit
         Edit
@@ -33,12 +43,12 @@
         .messages--text
           日本代表頑張って！
     .group__message
-      %from
+      %form
         .group__message__text
-          %input{:name => "text"}
-          .group__message__img
+          %input.group__message__text--message{:name => "text", :type => "text" , :placeholder => "type a message"}
+          .group__message__text--img
             = fa_icon "image"
-          %input{:type => "submit", :value => "Send"}
+        %input{:type => "submit", :value => "Send"}
 
 
 
