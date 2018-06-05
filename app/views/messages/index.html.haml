@@ -24,8 +24,8 @@
     .group__message
       = form_tag('', method: :post) do
         .submit-message
-          %input.content{:name => "text", :type => "text" , :placeholder => "type a message"}
-          %label{:for => "img"}
+          %input.content{name: "text", type: "text", placeholder: "type a message"}
+          %label{for: "img"}
             = fa_icon "image"
-            %input#img{:name => "file", :style => "display:none;", :type => "file"}
-        %input.button{:type => "submit", :value => "Send"}
+            %input#img{name: "file", style: "display:none;", type: "file"}
+        %input.button{type: "submit", value: "Send"}
