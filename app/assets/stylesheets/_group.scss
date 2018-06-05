@@ -2,21 +2,21 @@
     width: calc(100% - 300px);
     height: 100%;
     float: right;
-    .group__head {
+    &__head {
       padding: 0 40px;
       height: 96px;
-      .group__head__title {
+      &__title {
         margin-top: 35px;
         font-size: 20px;
         color: #333333;
         float: left;
-        .group__head__members {
+        &__members {
           margin-top: 15px;
           font-size: 12px;
           color: $grayColor4;
         }
       }
-      .group__head__edit{
+      &__edit{
         float: right;
         margin-top: 28px;
         border: solid thin $skyBlueColor;
@@ -30,7 +30,7 @@
         }
       }
     }
-    .group__chat {
+    &__chat {
       clear: both;
       padding: 0 40px;
       background-color: $grayColor1;
@@ -38,18 +38,18 @@
       height: calc(100% - 189px);
       .messages {
         margin-top: 40px;
-        .messages--nickname {
+        &--nickname {
           font-size: 16px;
           font-weight: bold;
           color: $blackColor;
           margin-right: 10px;
           float: left;
         }
-        .messages--createdat {
+        &--createdat {
           font-size: 12px;
           color: $grayColor4;
         }
-        .messages--text {
+        &--text {
           clear: both;
           font-size: 14px;
           color: $blackColor;
@@ -58,16 +58,16 @@
         }
       }
     }
-    .group__message {
+    &__message {
       width: calc(100% - 80px);
       padding: 20px 40px;
       background-color: $grayColor3;
       form {
-        .group__message__text {
+        .submit-message {
           width: calc(100% - 115px);
           background-color: $whiteColor;
           float: left;
-          input.group__message__text--message {
+          input.content {
             padding: 0 10px;
             width: calc(100% - 50px);
             line-height: 50px;
@@ -79,7 +79,7 @@
             font-size: 20px;
           }
         }
-        input.group__message__text--button {
+        input.button {
           background-color: $skyBlueColor;
           color: $whiteColor;
           border: 0;

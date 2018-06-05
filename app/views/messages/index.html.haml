@@ -12,25 +12,25 @@
     .menu__chatlist
       %ul
         %li.memu__chatlist__list
-          .menu__chatlist__list--group
+          .groupname
             WCUPについて話そう
-          .menu__chatlist__list--message
+          .message
             日本代表頑張って！
         %li.memu__chatlist__list
-          .menu__chatlist__list--group
+          .groupname
             仮想通貨について話そう
-          .menu__chatlist__list--message
+          .message
             NEM頑張って！
         %li.memu__chatlist__list
-          .menu__chatlist__list--group
+          .groupname
             眠い
-          .menu__chatlist__list--message
+          .message
             頑張って！
   .group
     .group__head
       .group__head__title
         WCUPについて話そう
-        .group__head__members
+        .group__head__title__members
           Member: nickmack sumsum
       .group__head__edit
         = link_to "Edit", root_path
@@ -52,10 +52,9 @@
 
     .group__message
       = form_tag('', method: :post) do
-        .group__message__text
-          %input.group__message__text--message{:name => "text", :type => "text" , :placeholder => "type a message"}
-          -# %input.group__message__text--img{:name => "file", :type => "file"}
-          %label{:for => "group__message__text--img"}
+        .submit-message
+          %input.content{:name => "text", :type => "text" , :placeholder => "type a message"}
+          %label{:for => "img"}
             = fa_icon "image"
-            %input#group__message__text--img{:name => "file", :style => "display:none;", :type => "file"}
-        %input.group__message__text--button{:type => "submit", :value => "Send"}
+            %input#img{:name => "file", :style => "display:none;", :type => "file"}
+        %input.button{:type => "submit", :value => "Send"}
