@@ -1,8 +1,16 @@
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
 .nortification {
-  background-color: #38AEF0;
+  background-color: $mainBlueColor;
   margin: 0 auto;
   p {
-    color: #FFF;
+    color: $backgroundFontColor;
     text-align: center;
   }
 }
@@ -15,13 +23,13 @@
     float: left;
     height: 100%;
     .menu__user {
-      background-color: #253141;
+      background-color: $menuUserBackColor;
       margin: 0;
       height: 100px;
       line-height: 100px;
       padding: 0 20px;
       .menu__user__nickname {
-        color: #fff;
+        color: $backgroundFontColor;
         font-size: 16px;
         font-weight: bold;
         float: left;
@@ -29,23 +37,23 @@
       .menu__user__button {
         float: right;
         a {
-          color: #fff;
+          color: $backgroundFontColor;
         }
       }
     }
     .menu__chatlist {
-      background-color: #2f3e51;
+      background-color: $menuChatlistBackColor;
       padding: 20px 0 0 20px;
       height: calc(100% - 120px);
       ul {
         li.memu__chatlist__list {
           margin-bottom: 40px;
           .menu__chatlist__list--group {
-            color: #FFF;
+            color: $backgroundFontColor;
             font-size: 15px;
           }
           .menu__chatlist__list--message {
-            color: #FFF;
+            color: $backgroundFontColor;
             font-size: 11px;
             margin-top: 5px;
           }
@@ -68,19 +76,19 @@
         .group__head__members {
           margin-top: 15px;
           font-size: 12px;
-          color: #999999;
+          color: $subFontColor;
         }
       }
       .group__head__edit{
         float: right;
         margin-top: 28px;
-        border: solid thin #38AEF0;
+        border: solid thin $mainBlueColor;
         text-align: center;
         height:40px;
         padding: 0 20px;
         line-height: 40px;
         a {
-          color: #38AEF0;
+          color: $mainBlueColor;
           text-decoration: none;
         }
       }
@@ -88,26 +96,26 @@
     .group__chat {
       clear: both;
       padding: 0 40px;
-      background-color: #FAFAFA;
+      background-color: $groupChatBackColor;
       border-top: solid thin #eeeeee;
-      height: calc(100% - 190px);
+      height: calc(100% - 189px);
       .messages {
         margin-top: 40px;
         .messages--nickname {
           font-size: 16px;
           font-weight: bold;
-          color: #434A54;
+          color: $messageFontColor;
           margin-right: 10px;
           float: left;
         }
         .messages--createdat {
           font-size: 12px;
-          color: #999999;
+          color: $subFontColor;
         }
         .messages--text {
           clear: both;
           font-size: 14px;
-          color: #434A54;
+          color: $messageFontColor;
           padding-top: 10px;
           margin-bottom: 40px;
         }
@@ -120,7 +128,7 @@
       form {
         .group__message__text {
           width: calc(100% - 115px);
-          background-color: #FFFFFF;
+          background-color: $backgroundFontColor;
           float: left;
           input.group__message__text--message {
             padding: 0 10px;
@@ -135,8 +143,8 @@
           }
         }
         input.group__message__text--button {
-          background-color: #38AEF0;
-          color: #fff;
+          background-color: $mainBlueColor;
+          color: $backgroundFontColor;
           border: 0;
           width: 100px;
           text-align: center;
