@@ -1,0 +1,44 @@
+  .menu {
+    width: 300px;
+    margin: 0;
+    float: left;
+    height: 100%;
+    .menu__user {
+      background-color: $menuUserBackColor;
+      margin: 0;
+      height: 100px;
+      line-height: 100px;
+      padding: 0 20px;
+      .menu__user__nickname {
+        color: $backgroundFontColor;
+        font-size: 16px;
+        font-weight: bold;
+        float: left;
+      }
+      .menu__user__button {
+        float: right;
+        a {
+          color: $backgroundFontColor;
+        }
+      }
+    }
+    .menu__chatlist {
+      background-color: $menuChatlistBackColor;
+      padding: 20px 0 0 20px;
+      height: calc(100% - 120px);
+      ul {
+        li.memu__chatlist__list {
+          margin-bottom: 40px;
+          .menu__chatlist__list--group {
+            color: $backgroundFontColor;
+            font-size: 15px;
+          }
+          .menu__chatlist__list--message {
+            color: $backgroundFontColor;
+            font-size: 11px;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }

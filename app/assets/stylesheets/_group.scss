@@ -1,66 +1,3 @@
-@mixin clearfix() {
-  &:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-}
-
-.nortification {
-  background-color: $mainBlueColor;
-  margin: 0 auto;
-  p {
-    color: $backgroundFontColor;
-    text-align: center;
-  }
-}
-.wrapper {
-  min-width: 100vw;
-  height: 100vh;
-  .menu {
-    width: 300px;
-    margin: 0;
-    float: left;
-    height: 100%;
-    .menu__user {
-      background-color: $menuUserBackColor;
-      margin: 0;
-      height: 100px;
-      line-height: 100px;
-      padding: 0 20px;
-      .menu__user__nickname {
-        color: $backgroundFontColor;
-        font-size: 16px;
-        font-weight: bold;
-        float: left;
-      }
-      .menu__user__button {
-        float: right;
-        a {
-          color: $backgroundFontColor;
-        }
-      }
-    }
-    .menu__chatlist {
-      background-color: $menuChatlistBackColor;
-      padding: 20px 0 0 20px;
-      height: calc(100% - 120px);
-      ul {
-        li.memu__chatlist__list {
-          margin-bottom: 40px;
-          .menu__chatlist__list--group {
-            color: $backgroundFontColor;
-            font-size: 15px;
-          }
-          .menu__chatlist__list--message {
-            color: $backgroundFontColor;
-            font-size: 11px;
-            margin-top: 5px;
-          }
-        }
-      }
-    }
-  }
   .group {
     width: calc(100% - 300px);
     height: 100%;
@@ -97,7 +34,7 @@
       clear: both;
       padding: 0 40px;
       background-color: $groupChatBackColor;
-      border-top: solid thin #eeeeee;
+      border-top: solid thin $groupChatBorderColor;
       height: calc(100% - 189px);
       .messages {
         margin-top: 40px;
@@ -124,7 +61,7 @@
     .group__message {
       width: calc(100% - 80px);
       padding: 20px 40px;
-      background-color: #DDDDDD;
+      background-color: $groupMessageBackColor;
       form {
         .group__message__text {
           width: calc(100% - 115px);
@@ -154,4 +91,3 @@
       }
     }
   }
-}
