@@ -4,14 +4,13 @@
 .wrapper
   .menu
     .menu__user
-      .menu__user__nickname
+      .menu__user__name
         NickName
       .menu__user__button
         = link_to fa_icon "edit"
         = link_to fa_icon "cog"
-    .menu__chatlist
-      %ul
-        = render partial: "/messages/group"
+    .menu__groups
+      = render partial: "/messages/group"
   .group
     .group__head
       .group__head__title

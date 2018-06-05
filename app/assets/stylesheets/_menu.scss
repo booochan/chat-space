@@ -9,7 +9,7 @@
       height: 100px;
       line-height: 100px;
       padding: 0 20px;
-      &__nickname {
+      &__name {
         color: $whiteColor;
         font-size: 16px;
         font-weight: bold;
@@ -22,22 +22,20 @@
         }
       }
     }
-    &__chatlist {
+    &__groups {
       background-color: $deepBlueColor1;
-      padding: 20px 0 0 20px;
+      padding: 20px 20px 0 20px;
       height: calc(100% - 120px);
-      ul {
-        li,&__list {
-          margin-bottom: 40px;
-          .groupname {
-            color: $whiteColor;
-            font-size: 15px;
-          }
-          .message {
-            color: $whiteColor;
-            font-size: 11px;
-            margin-top: 5px;
-          }
+      &__group {
+        margin-bottom: 40px;
+        &__name {
+          color: $whiteColor;
+          font-size: 15px;
+        }
+        &__message {
+          color: $whiteColor;
+          font-size: 11px;
+          margin-top: 5px;
         }
       }
     }
