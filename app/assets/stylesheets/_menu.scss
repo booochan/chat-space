@@ -1,0 +1,42 @@
+  .menu {
+    width: 300px;
+    margin: 0;
+    float: left;
+    height: 100%;
+    &__user {
+      background-color: $deepBlueColor2;
+      margin: 0;
+      height: 100px;
+      line-height: 100px;
+      padding: 0 20px;
+      &__name {
+        color: $whiteColor;
+        font-size: 16px;
+        font-weight: bold;
+        float: left;
+      }
+      &__button {
+        float: right;
+        a {
+          color: $whiteColor;
+        }
+      }
+    }
+    &__groups {
+      background-color: $deepBlueColor1;
+      padding: 20px 20px 0 20px;
+      height: calc(100% - 120px);
+      &__group {
+        margin-bottom: 40px;
+        &__name {
+          color: $whiteColor;
+          font-size: 15px;
+        }
+        &__message {
+          color: $whiteColor;
+          font-size: 11px;
+          margin-top: 5px;
+        }
+      }
+    }
+  }

@@ -1,0 +1,31 @@
+.nortification
+  %p
+    グループが作成されました
+.wrapper
+  .menu
+    .menu__user
+      .menu__user__name
+        NickName
+      .menu__user__button
+        = link_to fa_icon "edit"
+        = link_to fa_icon "cog"
+    .menu__groups
+      = render partial: "/messages/group"
+  .group
+    .group__head
+      .group__head__title
+        WCUPについて話そう
+        .group__head__title__members
+          Member: nickmack sumsum
+      .group__head__edit
+        = link_to "Edit", root_path
+    .group__chat
+      = render partial: "/messages/message"
+    .group__message
+      = form_tag('', method: :post) do
+        .submit-message
+          %input.content{name: "text", type: "text", placeholder: "type a message"}
+          %label{for: "img"}
+            = fa_icon "image"
+            %input#img{name: "file", style: "display:none;", type: "file"}
+        %input.button{type: "submit", value: "Send"}
