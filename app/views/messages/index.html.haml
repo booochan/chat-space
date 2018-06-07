@@ -1,14 +1,14 @@
-.nortification
-  %p
-    グループが作成されました
 .wrapper
   .menu
     .menu__user
       .menu__user__name
-        NickName
+        = current_user.name if user_signed_in?
       .menu__user__button
-        = link_to fa_icon "edit"
-        = link_to fa_icon "cog"
+        = link_to edit_user_path(current_user.id) do
+          = fa_icon 'cog', class: 'icon'
+      .menu__user__button
+        = link_to do
+          = fa_icon 'pencil-square-o', class: 'icon'
     .menu__groups
       = render partial: "/messages/group"
   .group
