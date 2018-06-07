@@ -33,7 +33,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :relationships
-- has_many :groups, through: :members
+- has_many :groups, through: :relationships
 - has_many :messages
 
 ## groupsテーブル
@@ -43,7 +43,7 @@ Things you may want to cover:
 |name|string|null: false|◯|◯|
 
 - has_many :relationships
-- has_many :users, through: :members
+- has_many :users, through: :relationships
 - has_many :messages
 
 ## relationshipsテーブル
