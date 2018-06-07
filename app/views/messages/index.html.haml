@@ -1,11 +1,8 @@
-.nortification
-  %p
-    グループが作成されました
 .wrapper
   .menu
     .menu__user
       .menu__user__name
-        NickName
+        = current_user.name if user_signed_in?
       .menu__user__button
         = link_to fa_icon "edit"
         = link_to fa_icon "cog"
