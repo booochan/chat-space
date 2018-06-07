@@ -23,35 +23,35 @@ Things you may want to cover:
 
 * ...
 
-## usesテーブル
+## usersテーブル
 
-|Column|Type|Options|Index|
-|------|----|-------|-----|
-|name|string|null: false|-|
-|email|string|null: false|-|
-|password|string|null: false|-|
+|Column|Type|Options|Index|Unique|
+|------|----|-------|-----|------|
+|name|string|null: false|-|◯|
+|email|string|null: false|-|◯|
+|password|string|null: false|-|-|
 
 ### Association
-- has_many :members
+- has_many :relationships
 - has_many :groups, through: :members
 - has_many :messages
 
 ## groupsテーブル
 
-|Column|Type|Options|Index|
-|------|----|-------|-----|
-|name|string|null: false|◯|
+|Column|Type|Options|Index|Unique|
+|------|----|-------|-----|------|
+|name|string|null: false|◯|◯|
 
-- has_many :members
-- has_many :groups, through: :members
+- has_many :relationships
+- has_many :users, through: :members
 - has_many :messages
 
-## membersテーブル
+## relationshipsテーブル
 
-|Column|Type|Options|Index|
-|------|----|-------|-----|
-|user_id|reference|null: false, foreign_key: true|◯|
-|group_id|reference|null: false, foreign_key: true|◯|
+|Column|Type|Options|Index|Unique|
+|------|----|-------|-----|------|
+|user_id|reference|null: false, foreign_key: true|◯|-|
+|group_id|reference|null: false, foreign_key: true|◯|-|
 
 ### Association
 - belongs_to :group
@@ -59,16 +59,13 @@ Things you may want to cover:
 
 ## messagesテーブル
 
-|Column|Type|Options|Index|
-|------|----|-------|-----|
-|text|text|-|-|
-|image|string|-|-|
-|user_id|reference|null: false, foreign_key: true|◯|
-|group_id|reference|null: false, foreign_key: true|◯|
+|Column|Type|Options|Index|Unique|
+|------|----|-------|-----|------|
+|text|text|-|-|-|
+|image|string|-|-|-|
+|user_id|reference|null: false, foreign_key: true|◯|-|
+|group_id|reference|null: false, foreign_key: true|◯|-|
 
 ### Association
 - belongs_to :group
 - belongs_to :user
-
-
-
