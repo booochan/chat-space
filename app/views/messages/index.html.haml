@@ -4,7 +4,7 @@
       .menu__user__name
         = current_user.name if user_signed_in?
       .menu__user__button
-        = link_to edit_user_path(current_user) do
+        = link_to edit_user_path(current_user.id) do
           = fa_icon 'cog', class: 'icon'
       .menu__user__button
         = link_to do
