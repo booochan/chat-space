@@ -1,13 +1,18 @@
 class GroupsController < ApplicationController
   before_action :set_gruop, only: [:edit, :update]
 
+  def index
+  end
+
   def new
+    @group = Group.new
+    @group.users << current_user
   end
 
   def create
     @group = Group.new(group_params)
-    if @group.save(group_params)
-      redirect_to group_messages_path(@group)
+    if @group.save
+      redirect_to root_path
     else
       render :new
     end
@@ -25,6 +30,7 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, user_ids: [])
+
   end
 end
