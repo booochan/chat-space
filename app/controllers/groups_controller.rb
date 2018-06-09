@@ -1,5 +1,4 @@
 class GroupsController < ApplicationController
-  # before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :set_gruop, only: [:edit, :update]
 
   def new
@@ -8,7 +7,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save(group_params)
-      redirect_to group_messages_path(@group.id)
+      redirect_to group_messages_path(@group)
     else
       render :new
     end
@@ -20,6 +19,7 @@ class GroupsController < ApplicationController
   def update
   end
 
+  private
   def set_group
     @group = Group.find(params[:id])
   end
