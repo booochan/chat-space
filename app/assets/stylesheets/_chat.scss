@@ -62,12 +62,11 @@
       width: calc(100% - 80px);
       padding: 20px 40px;
       background-color: $grayColor3;
-      form {
         .submit-message {
           width: calc(100% - 115px);
           background-color: $whiteColor;
           float: left;
-          input.content {
+          input[type="text"] {
             padding: 0 10px;
             width: calc(100% - 50px);
             line-height: 50px;
@@ -77,9 +76,12 @@
           label {
             line-height: 50px;
             font-size: 20px;
+            .ignore {
+              display: none;
+            }
           }
         }
-        input.button {
+        input[type="submit"] {
           background-color: $skyBlueColor;
           color: $whiteColor;
           border: 0;
@@ -88,6 +90,5 @@
           line-height: 50px;
           margin-left: 15px;
         }
-      }
     }
   }

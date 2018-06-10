@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
 
   def index
     @group = Group.find(params[:group_id])
+    @message = Message.new
   end
 
   def create
@@ -10,10 +11,11 @@ class MessagesController < ApplicationController
       redirect_to group_messages_path(@message.group_id)
     else
       render :index
+    end
   end
 
   private
-  def massage_params
+  def message_params
     params.require(:message).permit(:text, :image).merge(user_id: current_user.id, group_id: params[:group_id])
   end
 end

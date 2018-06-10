@@ -11,10 +11,10 @@
   .group__chat
     = render partial: "/messages/message"
   .group__message
-    = form_tag('', method: :post) do
+    = form_for message, url: group_messages_path do |f|
       .submit-message
-        %input.content{name: "text", type: "text", placeholder: "type a message"}
-        %label{for: "img"}
+        = f.text_field :text, placeholder: "type a message"
+        = f.label :image do
           = fa_icon "image"
-          %input#img{name: "file", style: "display:none;", type: "file"}
-      %input.button{type: "submit", value: "Send"}
+          = f.file_field :image, class: "ignore"
+      = f.submit "Send", data: { disable_with: "送信中..." }
