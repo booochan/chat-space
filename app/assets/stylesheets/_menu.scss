@@ -27,17 +27,9 @@
       background-color: $deepBlueColor1;
       padding: 20px 20px 0 20px;
       height: calc(100% - 120px);
-      &__group {
-        margin-bottom: 40px;
-        &__name {
-          color: $whiteColor;
-          font-size: 15px;
-        }
-        &__message {
-          color: $whiteColor;
-          font-size: 11px;
-          margin-top: 5px;
-        }
+      a {
+        text-decoration: none;
       }
     }
   }
+
