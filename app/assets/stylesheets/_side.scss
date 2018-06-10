@@ -1,0 +1,15 @@
+.side-group {
+  margin-bottom: 40px;
+  text-decoration: none;
+    &__name {
+      color: $whiteColor;
+      font-size: 15px;
+      text-decoration: none;
+    }
+    &__message {
+      color: $whiteColor;
+      font-size: 11px;
+      margin-top: 5px;
+      text-decoration: none;
+    }
+}
