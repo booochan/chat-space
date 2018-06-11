@@ -1,14 +1,10 @@
 .message
-  .message__name
-    sumsum
-  .message__createdat
-    2018/06/02 18:30
-  .message__text
-    日本代表頑張って！
-.message
-  .message__name
-    sumsum
-  .message__createdat
-    2018/06/02 18:30
-  .message__text
-    日本代表頑張って！
+  = @messages.each do |message|
+    .message__name
+      = message.user.name
+    .message__createdat
+      = message.created_at
+    .message__text
+      = message.text
+    .message__image
+      = image_tag message.image unless nil
