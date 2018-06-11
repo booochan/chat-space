@@ -1,5 +1,9 @@
 .side-group
   .side-group__name
     = group.name
-  .side-group__message
-    メッセージはまだありません。
+  - if group.messages.present?
+    .side-group__message
+      = group.messages.last.text
+  - else
+    .side-group__message
+      = "メッセージがありません"
