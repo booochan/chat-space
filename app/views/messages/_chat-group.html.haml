@@ -11,7 +11,7 @@
   .group__chat
     = render partial: "/messages/message"
   .group__message
-    = form_for message, url: group_messages_path do |f|
+    = form_for [@group, @message] do |f|
       .submit-message
         = f.text_field :text, placeholder: "type a message"
         = f.label :image do
