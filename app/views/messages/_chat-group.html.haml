@@ -9,7 +9,7 @@
     .group__head__edit
       = link_to "Edit" , edit_group_path(@group)
   .group__chat
-    = render partial: "/messages/message"
+    = render partial: "/messages/message", collection: @messages
   .group__message
     = form_for [@group, @message] do |f|
       .submit-message

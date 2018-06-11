@@ -1,10 +1,12 @@
 .message
-  = @messages.each do |message|
-    .message__name
+  .upper-message
+    .upper-message__name
       = message.user.name
-    .message__createdat
+    .upper-message__createdat
       = message.created_at
-    .message__text
-      = message.text
-    .message__image
-      = image_tag message.image unless nil
+  .lower-meesage
+    - if message.text.present?
+      .lower-message__text
+        = message.text
+    .lower-message__image
+      = image_tag message.image.url if message.image.present?
