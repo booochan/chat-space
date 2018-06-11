@@ -1,14 +1,12 @@
 .message
-  .message__name
-    sumsum
-  .message__createdat
-    2018/06/02 18:30
-  .message__text
-    日本代表頑張って！
-.message
-  .message__name
-    sumsum
-  .message__createdat
-    2018/06/02 18:30
-  .message__text
-    日本代表頑張って！
+  .upper-message
+    .upper-message__name
+      = message.user.name
+    .upper-message__createdat
+      = message.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M:%S")
+  .lower-meesage
+    - if message.text.present?
+      .lower-message__text
+        = message.text
+    .lower-message__image
+      = image_tag message.image.url if message.image.present?

@@ -1,20 +1,20 @@
 .group
   .group__head
     .group__head__title
-      = group.name
+      = @group.name
       .group__head__title__members
         Member：
-        - group.relationships.each do |member|
+        - @group.relationships.each do |member|
           = member.user.name
     .group__head__edit
-      = link_to "Edit" , edit_group_path(group)
+      = link_to "Edit" , edit_group_path(@group)
   .group__chat
-    = render partial: "/messages/message"
+    = render partial: "/messages/message", collection: @messages
   .group__message
-    = form_tag('', method: :post) do
+    = form_for [@group, @message] do |f|
       .submit-message
-        %input.content{name: "text", type: "text", placeholder: "type a message"}
-        %label{for: "img"}
+        = f.text_field :text, placeholder: "type a message"
+        = f.label :image do
           = fa_icon "image"
-          %input#img{name: "file", style: "display:none;", type: "file"}
-      %input.button{type: "submit", value: "Send"}
+          = f.file_field :image, class: "ignore"
+      = f.submit "Send", data: { disable_with: "送信中..." }
