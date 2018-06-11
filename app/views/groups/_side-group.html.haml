@@ -1,9 +1,5 @@
 .side-group
   .side-group__name
     = group.name
-  - if group.messages.present?
-    .side-group__message
-      = group.messages.last.text
-  - else
-    .side-group__message
-      = "メッセージがありません"
+  .side-group__message
+    = group.show_last_message
