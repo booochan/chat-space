@@ -36,6 +36,7 @@
       background-color: $grayColor1;
       border-top: solid thin $grayColor2;
       height: calc(100% - 189px);
+      overflow: auto;
       .message {
         margin-top: 40px;
         .upper-message {
