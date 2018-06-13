@@ -70,6 +70,7 @@ group :development, :test do
   gem 'pry-stack_explorer' # スタックをたどれる
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
+  gem 'rails-controller-testing'
 end
 
 group :test do
