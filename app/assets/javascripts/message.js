@@ -26,6 +26,7 @@ $(function() {
                 </div>`
     return html;
   }
+
   $('#send_message').on('submit',function(e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -36,16 +37,17 @@ $(function() {
       data: formData,
       dataType: 'json',
       processData: false,
-      contentType: false
+      contentType: false,
     })
     .done(function(data){
       var html = buildHTML(data);
       $('.group__chat').append(html);
+      $('#send_message')[0].reset();
     })
     .fail(function(){
       alert('通信に失敗しました');
     })
     $('.group__chat').animate({ scrollTop: $('.group__chat')[0].scrollHeight}, 'fast');
     return false;
-  })
+  });
 });
