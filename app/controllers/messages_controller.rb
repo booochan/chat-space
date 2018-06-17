@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_group
-  skip_before_filter :verify_authenticity_token, :only => :create
+  skip_before_filter :verify_authenticity_token, only: :create
 
   def index
     @message = Message.new
