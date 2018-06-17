@@ -37,7 +37,7 @@ $(function() {
       data: formData,
       dataType: 'json',
       processData: false,
-      contentType: false,
+      contentType: false
     })
     .done(function(data){
       var html = buildHTML(data);
