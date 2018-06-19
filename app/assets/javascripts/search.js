@@ -22,9 +22,7 @@ $(function() {
   $("#user-search-field").on("keyup", function() {
     var input = $.trim($("#user-search-field").val());
     clearTimeout(timeout)
-    timeout = setTimeout(function() {
-                console.log(input)
-    }, 500)
+    timeout = setTimeout(function() {}, 500)
 
     $.ajax({
       type: 'GET',
