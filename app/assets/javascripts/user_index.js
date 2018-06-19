@@ -43,14 +43,14 @@ $(function() {
     })
   });
 
-  $('#user-search-result').on('click','.user-search-add.chat-group-user__btn.chat-group-user__btn--add',function(){
+  $('#user-search-result').on('click','.user-search-add',function(){
     var user_id = $(this).attr('data-user-id');
     var user_name = $(this).attr('data-user-name');
     appendUserList(user_id, user_name);
     $(this).parent().remove();
   });
 
-  $('#chat-group-users').on('click','.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn',function(){
+  $('#chat-group-users').on('click','.user-search-remove',function(){
     $(this).parent().remove();
   });
 });
