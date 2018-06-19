@@ -7,15 +7,13 @@
           %li= message
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      %label.chat-group-form__label{ for: "chat__group_name" }
-        グループ名
+      = f.label :グループ名, class: 'chat-group-form__label'
     .chat-group-form__field--right
       = f.text_field :name, class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      %label.chat-group-form__label{for: "chat_group_チャットメンバーを追加"}
-        チャットメンバーを追加
+      = f.label :チャットメンバーを追加, class: "chat-group-form__label"
     .chat-group-form__field--right
       .chat-group-form__search.clearfix
         = f.text_field :name, name: 'keyword', class: 'chat-group-form__input', id: 'user-search-field', placeholder: ' 追加したいユーザー名を入力してください', value: ""
@@ -23,8 +21,7 @@
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      %label.chat-group-form__label{for: "chat_group_チャットメンバー"}
-        チャットメンバー
+      = f.label :チャットメンバー, class: ".chat-group-form__label"
     .chat-group-form__field--right
       #chat-group-users
         - if @members.present?
@@ -43,4 +40,4 @@
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
-      = f.submit "Save", class: "chat-group-form__action-btn", data: { disable_with: "送信中..." }
+      = f.submit "送信する", data: { disable_with: "送信中..." }, class: "chat-group-form__action-btn"
