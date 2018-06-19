@@ -26,7 +26,7 @@ $(function() {
 
     $.ajax({
       type: 'GET',
-      url: '/users/search',
+      url: '/users',
       data: { keyword: input },
       dataType: 'json'
     })
