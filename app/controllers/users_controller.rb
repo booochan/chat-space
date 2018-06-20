@@ -21,14 +21,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def search
-  #   @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").not(id: current_user.id)
-  #   respond_to do |format|
-  #     format.html
-  #     format.json
-  #   end
-  # end
-
   private
 
   def set_user
