@@ -1,5 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:index]
+
+  def index
+    @users = User.where('name LIKE(?) AND name != (?)', "%#{params[:search_name]}%", current_user.name)
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
 
   def edit
   end
