@@ -6,7 +6,7 @@ $(function() {
     else {
       insertImage = '';
     }
-    var html =`<div class='message'>
+    var html =`<div class='message' data-message-id='${message.id}'>
                   <div class='upper-message'>
                     <div class='upper-message__name'>
                       ${message.user_name}
@@ -26,6 +26,38 @@ $(function() {
                 </div>`
     return html;
   }
+
+  $(window).load(function () {
+    var interval = setInterval(function() {
+      var id = $('.message').last().data('messageId');
+      var dir = location.href.split("/");
+      var group_id = dir[dir.length -2];
+      var url = '/groups/' + group_id + '/messages'
+      if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+        $.ajax({
+          type: 'GET',
+          url: url,
+          dataType: 'json'
+        })
+        .done(function(data) {
+          var insertHTML = '';
+          data.forEach(function(message){
+            if (message.id > id ) {
+              console.log(message.id)
+              insertHTML += buildHTML(message);
+            }
+          });
+          $('.group__chat').append(insertHTML);
+        })
+        .fail(function() {
+          alert('通信に失敗しました');
+        })
+        $('.group__chat').animate({ scrollTop: $('.group__chat')[0].scrollHeight}, 'fast');
+        return false;
+      } else {
+        clearInterval(interval);
+        }} , 5000 );
+  });
 
   $('#send_message').on('submit',function(e) {
     e.preventDefault();
@@ -50,4 +82,5 @@ $(function() {
     $('.group__chat').animate({ scrollTop: $('.group__chat')[0].scrollHeight}, 'fast');
     return false;
   });
+
 });
