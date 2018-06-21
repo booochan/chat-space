@@ -27,33 +27,35 @@ $(function() {
     return html;
   }
 
-  $(window).load(function () {
-    var interval = setInterval(function() {
-      var nowEndId = $('.message').last().data('messageId');
-      var url = location.pathname;
-      if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
-        $.ajax({
-          type: 'GET',
-          url: url,
-          dataType: 'json',
-          data: { id: nowEndId }
-        })
-        .done(function(data) {
-          var insertHTML = '';
-          data.forEach(function(message){
-            insertHTML += buildHTML(message);
-          });
-          $('.group__chat').append(insertHTML);
-        })
-        .fail(function() {
-          alert('通信に失敗しました');
-        })
-        $('.group__chat').animate({ scrollTop: $('.group__chat')[0].scrollHeight}, 'fast');
-        return false;
-      } else {
-        clearInterval(interval);
-        }} , 5000 );
-  });
+  function scrollBottom(position){
+    $(position).animate({ scrollTop: $(position)[0].scrollHeight}, 'fast');
+    return false;
+  }
+
+  var interval = setInterval(function() {
+    var lastId = $('.message').last().data('messageId');
+    var url = location.pathname;
+    if (url.match(/\/groups\/\d+\/messages/)) {
+      $.ajax({
+        type: 'GET',
+        url: url,
+        dataType: 'json',
+        data: { id: lastId }
+      })
+      .done(function(data) {
+        var insertHTML = '';
+        data.forEach(function(message){
+          insertHTML += buildHTML(message);
+        });
+        $('.group__chat').append(insertHTML);
+      })
+      .fail(function() {
+        alert('通信に失敗しました');
+      })
+      scrollBottom('.group__chat');
+    } else {
+      clearInterval(interval);
+      }} , 5000 );
 
   $('#send_message').on('submit',function(e) {
     e.preventDefault();
@@ -75,8 +77,7 @@ $(function() {
     .fail(function(){
       alert('通信に失敗しました');
     })
-    $('.group__chat').animate({ scrollTop: $('.group__chat')[0].scrollHeight}, 'fast');
-    return false;
+    scrollBottom('.group__chat');
   });
 
 });
