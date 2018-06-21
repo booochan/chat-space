@@ -29,23 +29,19 @@ $(function() {
 
   $(window).load(function () {
     var interval = setInterval(function() {
-      var id = $('.message').last().data('messageId');
-      var dir = location.href.split("/");
-      var group_id = dir[dir.length -2];
-      var url = '/groups/' + group_id + '/messages'
-      if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      var nowEndId = $('.message').last().data('messageId');
+      var url = location.pathname;
+      if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
         $.ajax({
           type: 'GET',
           url: url,
-          dataType: 'json'
+          dataType: 'json',
+          data: { id: nowEndId }
         })
         .done(function(data) {
           var insertHTML = '';
           data.forEach(function(message){
-            if (message.id > id ) {
-              console.log(message.id)
-              insertHTML += buildHTML(message);
-            }
+            insertHTML += buildHTML(message);
           });
           $('.group__chat').append(insertHTML);
         })
