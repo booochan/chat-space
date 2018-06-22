@@ -24,13 +24,74 @@ $(function() {
                       </div>
                   </div>
                 </div>`
-    return html;
+  $('.group__chat').append(html);
   }
 
+  function alertFlash() {
+    var html =
+      `<div class="nortification">
+        <p class="alert">メッセージか画像を入力してください</p>
+      </div>`
+    $('.notification').append(html);
+    $('.notification').fadeIn(500).fadeOut(2000);
+    setTimeout(function(){
+     $('.notification').remove();
+    },2500);
+  }
   function scrollBottom(position){
     $(position).animate({ scrollTop: $(position)[0].scrollHeight}, 'fast');
     return false;
   }
+  function colorChange(part) {
+    $(part).css('color', '#e55f29');
+  }
+  function colorRemove(part) {
+    $(part).css('color', '#434A54');
+  }
+  function formReset(part) {
+    $(part)[0].reset();
+  }
+  function focusClear(part) {
+    $(part).blur();
+  }
+
+  $('#message_image').on('change',function() {
+    if ($(this).val() !== '' ) {
+      colorChange($(this).parent());
+    }
+  });
+
+  $('#send_message').on('submit',function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+    var url = $(this).attr('action');
+    var inputText = $("#message_text").val();
+    var inputImage = $("#message_image").val();
+    if (inputText !== '' || inputImage !== '') {
+      $.ajax({
+        type: 'POST',
+        url: url,
+        data: formData,
+        dataType: 'json',
+        processData: false,
+        contentType: false
+      })
+        .done(function(data){
+          var dataId = data.id;
+          buildHTML(data);
+        })
+        .fail(function(){
+          alert('通信に失敗しました');
+        })
+      e.stopPropagation();
+    } else {
+        alertFlash();
+    }
+    colorRemove($('#message_image').parent());
+    scrollBottom('.group__chat');
+    formReset(this);
+    focusClear('#send-btn');
+  });
 
   var interval = setInterval(function() {
     var lastId = $('.message').last().data('messageId');
@@ -39,15 +100,13 @@ $(function() {
       $.ajax({
         type: 'GET',
         url: url,
-        dataType: 'json',
-        data: { id: lastId }
+        data: { message_id: lastId },
+        dataType: 'json'
       })
       .done(function(data) {
-        var insertHTML = '';
         data.forEach(function(message){
-          insertHTML += buildHTML(message);
+          buildHTML(message);
         });
-        $('.group__chat').append(insertHTML);
       })
       .fail(function() {
         alert('通信に失敗しました');
@@ -56,28 +115,4 @@ $(function() {
     } else {
       clearInterval(interval);
       }} , 5000 );
-
-  $('#send_message').on('submit',function(e) {
-    e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action');
-    $.ajax({
-      type: 'POST',
-      url: url,
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false
-    })
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.group__chat').append(html);
-      $('#send_message')[0].reset();
-    })
-    .fail(function(){
-      alert('通信に失敗しました');
-    })
-    scrollBottom('.group__chat');
-  });
-
 });
