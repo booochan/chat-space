@@ -17,4 +17,4 @@
         = f.label :image do
           = fa_icon "image"
           = f.file_field :image, class: "ignore"
-      = f.submit "Send", data: { disable_with: "送信中..." }
+      = f.submit "Send", id: "send-btn"
