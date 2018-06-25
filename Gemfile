@@ -73,3 +73,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'faker'
 end
+
+group :production do
+  gem 'unicorn'
+end
